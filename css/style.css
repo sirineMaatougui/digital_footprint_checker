@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-/* 2) Simple color palette */
+/* 2) color palette */
 :root {
   --bg: #f3f6fb;
   --card: #ffffff;
