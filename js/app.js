@@ -139,6 +139,28 @@ async function fetchGeolocation() {
 
 // Main initialization function, runs when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    const navToggleButtons = document.querySelectorAll('.nav-toggle');
+    navToggleButtons.forEach(button => {
+        const header = button.closest('header');
+        const menuId = button.getAttribute('aria-controls');
+        const menu = menuId ? document.getElementById(menuId) : null;
+        if (!header || !menu) {
+            return;
+        }
+        button.addEventListener('click', () => {
+            const isOpen = header.classList.toggle('nav-open');
+            button.setAttribute('aria-expanded', isOpen);
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (header.classList.contains('nav-open')) {
+                    header.classList.remove('nav-open');
+                    button.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    });
+
     // Check current page by looking for specific elements
     if (document.getElementById('quiz-form')) {
         // On quiz.html: Add submit event listener to form

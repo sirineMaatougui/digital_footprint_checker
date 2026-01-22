@@ -11,7 +11,13 @@
     <!-- top menu, exists in all pages -->
     <header>
         <nav>
-            <ul>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+                <span class="sr-only">Menu</span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="result.html">Results</a></li>
@@ -27,5 +33,6 @@
         <a href="quiz.html" class="cta-button">Start the Quiz</a>
     </main>
 
+    <script src="js/app.js"></script>
 </body>
 </html>
