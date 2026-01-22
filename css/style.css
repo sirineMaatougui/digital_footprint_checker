@@ -1,0 +1,247 @@
+/* style.css - Simple but nice (student-friendly + responsive) */
+
+/* 1) Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2) Simple color palette */
+:root {
+  --bg: #f3f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --border: #e5e7eb;
+  --shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 3) Base */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 4) Header + horizontal nav (also on phone) */
+header {
+  background: #111827;
+  padding: 12px 16px;
+  border-bottom: 3px solid var(--primary);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* 5) Main container */
+.container {
+  max-width: 900px;
+  margin: 18px auto;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* 6) Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+h2 {
+  margin: 18px 0 10px;
+}
+
+/* 7) Text spacing */
+p {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+p small,
+.muted {
+  color: var(--muted);
+}
+
+/* 8) Lists */
+ul {
+  margin-left: 18px;
+  margin-bottom: 12px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* 9) Buttons */
+.cta-button,
+button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.05s ease;
+}
+
+.cta-button:hover,
+button:hover {
+  background: var(--primary-dark);
+}
+
+.cta-button:active,
+button:active {
+  transform: translateY(1px);
+}
+
+/* Center Start Quiz button */
+.cta-button {
+  display: block;
+  width: fit-content;
+  margin: 16px auto;
+  text-align: center;
+}
+
+/* 10) Quiz questions (cards) */
+.question {
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.question h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.question label {
+  display: block;
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.question label:hover {
+  background: #eef2ff;              /* light blue hover */
+  border: 1px solid #c7d2fe;
+}
+
+/* 11) Error */
+.error {
+  display: none;
+  color: #7f1d1d;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+/* 12) Result card */
+.result-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: #f9fafb;
+  margin-bottom: 14px;
+}
+
+/* 13) Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+}
+
+/* 14) Tips grid */
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tip-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: #f9fafb;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.tip-card h2 {
+  margin-top: 0;
+}
+
+/* 15) API section */
+.api-section {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  background: #f9fafb;
+  margin-top: 14px;
+}
+
+#api-error {
+  display: none;
+  margin-top: 10px;
+}
+
+/* 16) No data */
+#no-data {
+  display: none;
+  text-align: center;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #7f1d1d;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* 17) Responsive */
+@media (max-width: 700px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin: 12px;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Footprint Checker - Results</title>
+    <!-- external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- top menu, exists in all pages -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="result.html">Results</a></li>
+                <li><a href="tips.html">Tips</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content: Displays score, level, explanation, tips, and API data -->
+    <main class="container">
+        <h1>Your Digital Footprint Results</h1>
+        <!-- Score and level display -->
+        <div class="result-card">
+            <h2>Score: <span id="score">Loading...</span>%</h2>
+            <p>Risk Level: <span id="level">Loading...</span></p>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="explanation">Loading explanation...</p>
+        </div>
+        <!-- Personalized tips list -->
+        <div class="tips-section">
+            <h2>Personalized Tips</h2>
+            <ul id="tips-list">
+                <li>Loaading tips...</li>
+            </ul>
+        </div>
+        <!-- API section for IP geolocation -->
+        <div class="api-section">
+            <h2>Your IP Geolocation (for Awareness)</h2>
+            <p>IP: <span id="ip">Loading...</span></p>
+            <p>Country: <span id="country">Loading...</span></p>
+            <p>City: <span id="city">Loading...</span></p>
+            <p>ISP: <span id="isp">Loading...</span></p>
+            <div id="api-error" style="display: none;">Unable to fetch geolocation data. Please check your internet connection.</div>
+        </div>
+        <!-- Fallback if no data -->
+        <div id="no-data" style="display: none;">
+            <p>No quiz results found. <a href="quiz.html" class="cta-button">Take the quiz first.</a></p>
+        </div>
+    </main>
+
+    <!-- Link to the shared external JS file -->
+    <script src="js/app.js"></script>
+</body>
+</html>
