@@ -1,4 +1,3 @@
-/* style.css - Simple but nice (student-friendly + responsive) */
 
 /* 1) Reset */
 * {
@@ -128,8 +127,8 @@ p small,
 
 /* 8) Lists */
 ul {
-  margin-left: 18px;
-  margin-bottom: 12px;
+  margin-left: 52px;
+  /* margin-bottom: 12px; */
 }
 
 li {

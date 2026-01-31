@@ -1,5 +1,3 @@
-// app.js: Shared JavaScript file for all pages. Handles quiz form submission, validation, scoring, sessionStorage, and API calls. Heavily commented for line-by-line explanation in oral exam.
-
 // Function to get personalized tips based on risk level
 function getPersonalizedTips(level) {
     // Define tips arrays for each risk level
