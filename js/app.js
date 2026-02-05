@@ -42,50 +42,44 @@ function getExplanation(level) {
 
 // Function to handle quiz form submission
 function handleQuizSubmit(event) {
-    // Prevent the default form submission behavior (page refresh)
-    event.preventDefault();
-    
-    // Get the form element
-    const form = event.target;
-    // Collect all radio button groups (questions)
-    const questions = form.querySelectorAll('input[type="radio"]:checked');
-    // Check if all 8 questions are answered (each question has a name like q1, q2, etc.)
-    const answeredQuestions = new Set();
-    questions.forEach(q => answeredQuestions.add(q.name));
-    if (answeredQuestions.size !== 8) {
-        // Show error message if not all answered
-        document.getElementById('error-message').style.display = 'block';
-        return;
-    }
-    // Hide error message if validation passes
-    document.getElementById('error-message').style.display = 'none';
-    
-    // Calculate total score: sum of selected values (each is a string, convert to number)
-    let totalScore = 0;
-    questions.forEach(q => totalScore += parseInt(q.value));
-    // Max score is 24 (8 questions * 3 max points each)
-    const maxScore = 24;
-    // Calculate percentage and round it
-    const percentScore = Math.round((totalScore / maxScore) * 100);
-    // Determine risk level
-    const riskLevel = getRiskLevel(percentScore);
-    // Get explanation
-    const explanation = getExplanation(riskLevel);
-    // Get personalized tips
-    const tips = getPersonalizedTips(riskLevel);
-    
-    // Store results in sessionStorage as JSON
-    const results = {
-        score: percentScore,
-        level: riskLevel,
-        explanation: explanation,
-        tips: tips
-    };
-    sessionStorage.setItem('quizResults', JSON.stringify(results));
-    
-    // Redirect to results page
-    window.location.href = 'result.html';
+  event.preventDefault();
+
+  const form = event.target;
+
+  // Get all selected answers
+  const answers = form.querySelectorAll('input[type="radio"]:checked');
+
+  // must have 8 selected answers
+  if (answers.length !== 8) {
+    document.getElementById('error-message').style.display = 'block';
+    return;
+  }
+  document.getElementById('error-message').style.display = 'none';
+
+  // Calculate total score
+  let totalScore = 0;
+  for (let i = 0; i < answers.length; i++) {
+    totalScore = totalScore + parseInt(answers[i].value);
+  }
+
+  const maxScore = 24;
+  const percentScore = Math.round((totalScore / maxScore) * 100);
+
+  const riskLevel = getRiskLevel(percentScore);
+  const explanation = getExplanation(riskLevel);
+  const tips = getPersonalizedTips(riskLevel);
+
+  const results = {
+    score: percentScore,
+    level: riskLevel,
+    explanation: explanation,
+    tips: tips
+  };
+
+  sessionStorage.setItem('quizResults', JSON.stringify(results));
+  window.location.href = 'result.html';
 }
+
 
 // Function to load results on result.html
 function loadResults() {
